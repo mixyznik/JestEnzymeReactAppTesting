@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 # Versions
 RUN npm -v
 RUN node -v
-RUN yarn version
+
 
 # Install app dependencies
 COPY package.json /usr/src/app/
