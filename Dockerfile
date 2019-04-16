@@ -4,6 +4,7 @@ FROM node:carbon
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get -y install autoconf automake libtool nasm make pkg-config git apt-utils yarn
+RUN npm install --global surge
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -31,7 +32,8 @@ ENV NODE_ENV production
 ENV PORT 3000
 ENV PUBLIC_PATH "/"
 
-RUN npm run build
+RUN npm run deploy
+RUN surge
 
 # Main command
 CMD [ "npm", "run", "start" ]
