@@ -34,4 +34,4 @@ ENV PUBLIC_PATH "/"
 RUN npm run build
 
 # Main command
-CMD [ "npm", "run", "start:server" ]
+CMD [ "npm", "run", "start" ]
