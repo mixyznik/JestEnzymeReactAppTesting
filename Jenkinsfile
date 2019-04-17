@@ -20,7 +20,7 @@ node {
     }
     stage('Deploy'){
       if(env.BRANCH_NAME == 'master'){
-        sh 'docker build -t react-app --no-cache .'
+        sh 'docker build -t react-app --build-arg SMB_USER=mimi.mimijevic@yandex.com --build-arg SMB_PASS=milos1980# --no-cache .'
         sh 'docker rmi react-app'
       }
     }

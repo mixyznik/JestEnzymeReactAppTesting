@@ -1,6 +1,9 @@
 # Extending image
 FROM node:carbon
 
+ARG SMB_PASS
+ARG SMB_USER
+
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get -y install autoconf automake libtool nasm make pkg-config git apt-utils yarn
@@ -33,6 +36,8 @@ ENV PORT 3000
 ENV PUBLIC_PATH "/"
 
 RUN npm run deploy
+RUN echo "$SMB_USER"
+RUN echo "$SMB_PASS"
 RUN surge
 
 # Main command
