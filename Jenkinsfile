@@ -21,6 +21,7 @@ node {
     stage('Deploy'){
       if(env.BRANCH_NAME == 'master'){
         sh 'docker build -t react-app --no-cache .'
+        sh 'docker rmi react-app'
       }
     }
   }
