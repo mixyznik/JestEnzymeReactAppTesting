@@ -8,6 +8,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get -y install autoconf automake libtool nasm make pkg-config git apt-utils yarn
 RUN npm install --global surge
+RUN npm install -g heroku
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -16,6 +17,11 @@ WORKDIR /usr/src/app
 # Versions
 RUN npm -v
 RUN node -v
+
+# login to heroku
+RUN heroku login -i
+RUN echo "$SMB_USER"
+RUN echo "$SMB_PASS"
 
 
 # Install app dependencies
