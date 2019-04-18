@@ -19,8 +19,11 @@ node {
       sh 'docker rmi react-test'
     }
     stage('Deploy'){
+      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'herokucredentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+  
+}
       if(env.BRANCH_NAME == 'master'){
-        sh 'docker build -t react-app --build-arg SMB_USER=mimi.mimijevic@yandex.com --build-arg SMB_PASS=milos1980# --no-cache .'
+        sh 'docker build -t react-app --build-arg SMB_USER=USERNAME --build-arg SMB_PASS=PASSWORD --no-cache .'
         sh 'docker rmi react-app'
       }
     }
