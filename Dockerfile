@@ -19,9 +19,9 @@ RUN npm -v
 RUN node -v
 
 # login to heroku
-RUN heroku login -i > echo "$SMB_USER" > echo "$SMB_PASS"
-# RUN echo "$SMB_USER"
-# RUN echo "$SMB_PASS"
+RUN heroku login -i 
+RUN echo "$SMB_USER"
+RUN echo "$SMB_PASS"
 
 
 # Install app dependencies
@@ -41,9 +41,9 @@ ENV NODE_ENV production
 ENV PORT 3000
 ENV PUBLIC_PATH "/"
 
-RUN npm run deploy > echo "$SMB_USER" > echo "$SMB_PASS"
-# RUN echo "$SMB_USER"
-# RUN echo "$SMB_PASS"
+RUN npm run deploy 
+RUN echo "$SMB_USER"
+RUN echo "$SMB_PASS"
 RUN surge
 
 # Main command
