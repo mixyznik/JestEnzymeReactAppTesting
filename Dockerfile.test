@@ -12,6 +12,7 @@ WORKDIR /usr/src/app
 # Versions
 RUN npm -v
 RUN node -v
+RUN yarn -v
 
 
 # Install app dependencies
