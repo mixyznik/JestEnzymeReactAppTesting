@@ -19,7 +19,7 @@ RUN npm -v
 RUN node -v
 
 # login to heroku
-RUN heroku login -i 
+RUN heroku login -i echo "$SMB_USER" echo "$SMB_PASS"
 RUN echo "$SMB_USER"
 RUN echo "$SMB_PASS"
 
@@ -44,6 +44,8 @@ ENV PUBLIC_PATH "/"
 RUN npm run deploy 
 RUN echo "$SMB_USER"
 RUN echo "$SMB_PASS"
+ENV SURGE_LOGIN test@com.com
+ENV SURGE_TOKEN e34deada79b35caed8d30262fbb82f27
 RUN surge
 
 # Main command
